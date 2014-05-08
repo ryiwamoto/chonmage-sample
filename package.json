@@ -1,0 +1,17 @@
+{
+  "name": "chonmage-sample",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-chonmage": "git+https://github.com/ryiwamoto/gulp-chonmage.git",
+    "gulp": "^3.6.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-tsc": "^0.7.0"
+  }
+}
