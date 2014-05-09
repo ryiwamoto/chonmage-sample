@@ -37,18 +37,28 @@ var Chonmage;
 
 window["ChonmageTemplates"]["templates"]["test_template1.tmpl"] = new Chonmage.Compiled(function (context) {
     var _ = this, __b = "";
-    __b += "Hello ";
-    __b += _.esc(context.hoge);
-    __b += "!! ";
-    __b += _.esc(context.foo);
+    __b += (+context.numberVar);
     __b += "\n";
+    __b += _.esc(context.stringVar);
+    __b += "\n";
+    if (context.booleanVar) {
+        context.arrayVar.forEach(function (__item_0) {
+            __b += "        	";
+            __b += _.esc(__item_0.stringVar);
+            __b += "\n";
+        });
+    }
+    ;
     return __b;
 });
 ///<reference path="../../lib/ChonmageTemplate.ts"/>
 ///<reference path="compiledTemplate/test_template1.ts"/>
-var rendered = ChonmageTemplates.get('test_template1.tmpl').render({
-    hoge: 'World',
-    foo: 'FOOOOOOO!!!!!!'
+var compiledTemplate = ChonmageTemplates.get('test_template1.tmpl');
+var rendered = compiledTemplate.render({
+    booleanVar: true,
+    numberVar: 1234,
+    stringVar: 'foo',
+    arrayVar: [{ stringVar: 'bar' }, { stringVar: 'hoge' }]
 });
 
 document.addEventListener('DOMContentLoaded', function () {
